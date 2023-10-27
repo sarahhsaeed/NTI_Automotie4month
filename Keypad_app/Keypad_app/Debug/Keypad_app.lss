@@ -1,0 +1,603 @@
+
+Keypad_app.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000c4  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  0000031e  000003b2  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  000003b2  2**0
+                  CONTENTS, READONLY
+  3 .stack.descriptors.hdr 0000001c  00000000  00000000  000003e1  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000070  00000000  00000000  000003fd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000011a4  00000000  00000000  0000046d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000075f  00000000  00000000  00001611  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000474  00000000  00000000  00001d70  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  0000008c  00000000  00000000  000021e4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000001cd  00000000  00000000  00002270  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000250  00000000  00000000  0000243d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000040  00000000  00000000  0000268d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .text         00000004  0000030c  0000030c  000003a0  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000026d0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .text.KEYPAD_init 0000000e  000002f2  000002f2  00000386  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.KEYPAD_read 00000114  000000c4  000000c4  00000158  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.main    00000014  000002de  000002de  00000372  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .data.PeripheralA 00000002  00800060  0000031a  000003ae  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 18 .data.PeripheralB 00000002  00800062  0000031c  000003b0  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 19 .text.SEVEN_SEG_init 00000026  000002a2  000002a2  00000336  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .text.SEVEN_SEG_write 000000ca  000001d8  000001d8  0000026c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .text.libgcc  0000000c  00000300  00000300  00000394  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .text.__dummy_fini 00000002  00000314  00000314  000003a8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 23 .text.__dummy_funcs_on_exit 00000002  00000316  00000316  000003aa  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 24 .text.__dummy_simulator_exit 00000002  00000318  00000318  000003ac  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 25 .text.exit    00000016  000002c8  000002c8  0000035c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 26 .text._Exit   00000004  00000310  00000310  000003a4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 38 00 	jmp	0x70	; 0x70 <__ctors_end>
+   4:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+   8:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+   c:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+  10:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+  14:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+  18:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+  1c:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+  20:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+  24:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+  28:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+  2c:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+  30:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+  34:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+  38:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+  3c:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+  40:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+  44:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+  48:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+  4c:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+  50:	0c 94 86 01 	jmp	0x30c	; 0x30c <__bad_interrupt>
+  54:	02 01       	movw	r0, r4
+  56:	09 01       	movw	r0, r18
+  58:	11 01       	movw	r2, r2
+  5a:	19 01       	movw	r2, r18
+  5c:	21 01       	movw	r4, r2
+  5e:	29 01       	movw	r4, r18
+  60:	31 01       	movw	r6, r2
+  62:	39 01       	movw	r6, r18
+  64:	41 01       	movw	r8, r2
+  66:	49 01       	movw	r8, r18
+
+00000068 <.dinit>:
+  68:	00 60       	ori	r16, 0x00	; 0
+  6a:	00 64       	ori	r16, 0x40	; 64
+  6c:	00 03       	mulsu	r16, r16
+  6e:	1a 00       	.word	0x001a	; ????
+
+00000070 <__ctors_end>:
+  70:	11 24       	eor	r1, r1
+  72:	1f be       	out	0x3f, r1	; 63
+  74:	cf e5       	ldi	r28, 0x5F	; 95
+  76:	d8 e0       	ldi	r29, 0x08	; 8
+  78:	de bf       	out	0x3e, r29	; 62
+  7a:	cd bf       	out	0x3d, r28	; 61
+
+0000007c <__do_copy_data>:
+  7c:	e8 e6       	ldi	r30, 0x68	; 104
+  7e:	f0 e0       	ldi	r31, 0x00	; 0
+  80:	40 e0       	ldi	r20, 0x00	; 0
+  82:	17 c0       	rjmp	.+46     	; 0xb2 <__do_clear_bss+0x8>
+  84:	b5 91       	lpm	r27, Z+
+  86:	a5 91       	lpm	r26, Z+
+  88:	35 91       	lpm	r19, Z+
+  8a:	25 91       	lpm	r18, Z+
+  8c:	05 91       	lpm	r16, Z+
+  8e:	07 fd       	sbrc	r16, 7
+  90:	0c c0       	rjmp	.+24     	; 0xaa <__do_clear_bss>
+  92:	95 91       	lpm	r25, Z+
+  94:	85 91       	lpm	r24, Z+
+  96:	ef 01       	movw	r28, r30
+  98:	f9 2f       	mov	r31, r25
+  9a:	e8 2f       	mov	r30, r24
+  9c:	05 90       	lpm	r0, Z+
+  9e:	0d 92       	st	X+, r0
+  a0:	a2 17       	cp	r26, r18
+  a2:	b3 07       	cpc	r27, r19
+  a4:	d9 f7       	brne	.-10     	; 0x9c <__do_copy_data+0x20>
+  a6:	fe 01       	movw	r30, r28
+  a8:	04 c0       	rjmp	.+8      	; 0xb2 <__do_clear_bss+0x8>
+
+000000aa <__do_clear_bss>:
+  aa:	1d 92       	st	X+, r1
+  ac:	a2 17       	cp	r26, r18
+  ae:	b3 07       	cpc	r27, r19
+  b0:	e1 f7       	brne	.-8      	; 0xaa <__do_clear_bss>
+  b2:	ef 36       	cpi	r30, 0x6F	; 111
+  b4:	f4 07       	cpc	r31, r20
+  b6:	31 f7       	brne	.-52     	; 0x84 <__do_copy_data+0x8>
+  b8:	0e 94 6f 01 	call	0x2de	; 0x2de <main>
+  bc:	0c 94 64 01 	jmp	0x2c8	; 0x2c8 <exit>
+
+000000c0 <_exit>:
+  c0:	f8 94       	cli
+
+000000c2 <__stop_program>:
+  c2:	ff cf       	rjmp	.-2      	; 0xc2 <__stop_program>
+
+Disassembly of section .text:
+
+0000030c <__bad_interrupt>:
+ 30c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+Disassembly of section .text.KEYPAD_init:
+
+000002f2 <KEYPAD_init>:
+	'4', '5', '6', '*',
+	'1', '2', '3', '-',
+	'c', '0', '=', '+'
+};
+void KEYPAD_init(void){
+	INIT_KEYPAD_PIN;
+ 2f2:	88 ee       	ldi	r24, 0xE8	; 232
+ 2f4:	81 bb       	out	0x11, r24	; 17
+ 2f6:	82 bb       	out	0x12, r24	; 18
+ 2f8:	14 ba       	out	0x14, r1	; 20
+ 2fa:	8f ef       	ldi	r24, 0xFF	; 255
+ 2fc:	85 bb       	out	0x15, r24	; 21
+ 2fe:	08 95       	ret
+
+Disassembly of section .text.KEYPAD_read:
+
+000000c4 <KEYPAD_read>:
+	
+}
+u8 KEYPAD_read(void){
+	K7D(0); K6D(1); K5D(1); K3D(1);
+  c4:	82 b3       	in	r24, 0x12	; 18
+  c6:	8f 77       	andi	r24, 0x7F	; 127
+  c8:	82 bb       	out	0x12, r24	; 18
+  ca:	82 b3       	in	r24, 0x12	; 18
+  cc:	80 64       	ori	r24, 0x40	; 64
+  ce:	82 bb       	out	0x12, r24	; 18
+  d0:	82 b3       	in	r24, 0x12	; 18
+  d2:	80 62       	ori	r24, 0x20	; 32
+  d4:	82 bb       	out	0x12, r24	; 18
+  d6:	82 b3       	in	r24, 0x12	; 18
+  d8:	88 60       	ori	r24, 0x08	; 8
+  da:	82 bb       	out	0x12, r24	; 18
+	if(K5 == 0) return keypad_matrix[0];
+  dc:	9d 9b       	sbis	0x13, 5	; 19
+  de:	5c c0       	rjmp	.+184    	; 0x198 <KEYPAD_read+0xd4>
+	if(K4 == 0) return keypad_matrix[4];
+  e0:	9c 9b       	sbis	0x13, 4	; 19
+  e2:	5c c0       	rjmp	.+184    	; 0x19c <KEYPAD_read+0xd8>
+	if(K3 == 0) return keypad_matrix[8];
+  e4:	9b 9b       	sbis	0x13, 3	; 19
+  e6:	5c c0       	rjmp	.+184    	; 0x1a0 <KEYPAD_read+0xdc>
+	if(K2 == 0) return keypad_matrix[12];
+  e8:	9a 9b       	sbis	0x13, 2	; 19
+  ea:	5c c0       	rjmp	.+184    	; 0x1a4 <KEYPAD_read+0xe0>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  ec:	89 ef       	ldi	r24, 0xF9	; 249
+  ee:	90 e0       	ldi	r25, 0x00	; 0
+  f0:	01 97       	sbiw	r24, 0x01	; 1
+  f2:	f1 f7       	brne	.-4      	; 0xf0 <KEYPAD_read+0x2c>
+  f4:	00 c0       	rjmp	.+0      	; 0xf6 <KEYPAD_read+0x32>
+  f6:	00 00       	nop
+	_delay_ms(1);
+	
+	K7D(1); K6D(0); K5D(1); K3D(1);
+  f8:	82 b3       	in	r24, 0x12	; 18
+  fa:	80 68       	ori	r24, 0x80	; 128
+  fc:	82 bb       	out	0x12, r24	; 18
+  fe:	82 b3       	in	r24, 0x12	; 18
+ 100:	8f 7b       	andi	r24, 0xBF	; 191
+ 102:	82 bb       	out	0x12, r24	; 18
+ 104:	82 b3       	in	r24, 0x12	; 18
+ 106:	80 62       	ori	r24, 0x20	; 32
+ 108:	82 bb       	out	0x12, r24	; 18
+ 10a:	82 b3       	in	r24, 0x12	; 18
+ 10c:	88 60       	ori	r24, 0x08	; 8
+ 10e:	82 bb       	out	0x12, r24	; 18
+	if(K5 == 0) return keypad_matrix[1];
+ 110:	9d 9b       	sbis	0x13, 5	; 19
+ 112:	4a c0       	rjmp	.+148    	; 0x1a8 <KEYPAD_read+0xe4>
+	if(K4 == 0) return keypad_matrix[5];
+ 114:	9c 9b       	sbis	0x13, 4	; 19
+ 116:	4a c0       	rjmp	.+148    	; 0x1ac <KEYPAD_read+0xe8>
+	if(K3 == 0) return keypad_matrix[9];
+ 118:	9b 9b       	sbis	0x13, 3	; 19
+ 11a:	4a c0       	rjmp	.+148    	; 0x1b0 <KEYPAD_read+0xec>
+	if(K2 == 0) return keypad_matrix[13];
+ 11c:	9a 9b       	sbis	0x13, 2	; 19
+ 11e:	4a c0       	rjmp	.+148    	; 0x1b4 <KEYPAD_read+0xf0>
+ 120:	89 ef       	ldi	r24, 0xF9	; 249
+ 122:	90 e0       	ldi	r25, 0x00	; 0
+ 124:	01 97       	sbiw	r24, 0x01	; 1
+ 126:	f1 f7       	brne	.-4      	; 0x124 <KEYPAD_read+0x60>
+ 128:	00 c0       	rjmp	.+0      	; 0x12a <KEYPAD_read+0x66>
+ 12a:	00 00       	nop
+	_delay_ms(1);
+	
+	K7D(1); K6D(1); K5D(0); K3D(1);
+ 12c:	82 b3       	in	r24, 0x12	; 18
+ 12e:	80 68       	ori	r24, 0x80	; 128
+ 130:	82 bb       	out	0x12, r24	; 18
+ 132:	82 b3       	in	r24, 0x12	; 18
+ 134:	80 64       	ori	r24, 0x40	; 64
+ 136:	82 bb       	out	0x12, r24	; 18
+ 138:	82 b3       	in	r24, 0x12	; 18
+ 13a:	8f 7d       	andi	r24, 0xDF	; 223
+ 13c:	82 bb       	out	0x12, r24	; 18
+ 13e:	82 b3       	in	r24, 0x12	; 18
+ 140:	88 60       	ori	r24, 0x08	; 8
+ 142:	82 bb       	out	0x12, r24	; 18
+	if(K5 == 0) return keypad_matrix[2];
+ 144:	9d 9b       	sbis	0x13, 5	; 19
+ 146:	38 c0       	rjmp	.+112    	; 0x1b8 <KEYPAD_read+0xf4>
+	if(K4 == 0) return keypad_matrix[6];
+ 148:	9c 9b       	sbis	0x13, 4	; 19
+ 14a:	38 c0       	rjmp	.+112    	; 0x1bc <KEYPAD_read+0xf8>
+	if(K3 == 0) return keypad_matrix[10];
+ 14c:	9b 9b       	sbis	0x13, 3	; 19
+ 14e:	38 c0       	rjmp	.+112    	; 0x1c0 <KEYPAD_read+0xfc>
+	if(K2 == 0) return keypad_matrix[14];
+ 150:	9a 9b       	sbis	0x13, 2	; 19
+ 152:	38 c0       	rjmp	.+112    	; 0x1c4 <KEYPAD_read+0x100>
+ 154:	89 ef       	ldi	r24, 0xF9	; 249
+ 156:	90 e0       	ldi	r25, 0x00	; 0
+ 158:	01 97       	sbiw	r24, 0x01	; 1
+ 15a:	f1 f7       	brne	.-4      	; 0x158 <KEYPAD_read+0x94>
+ 15c:	00 c0       	rjmp	.+0      	; 0x15e <KEYPAD_read+0x9a>
+ 15e:	00 00       	nop
+	_delay_ms(1);
+	
+	K7D(1); K6D(1); K5D(1); K3D(0);
+ 160:	82 b3       	in	r24, 0x12	; 18
+ 162:	80 68       	ori	r24, 0x80	; 128
+ 164:	82 bb       	out	0x12, r24	; 18
+ 166:	82 b3       	in	r24, 0x12	; 18
+ 168:	80 64       	ori	r24, 0x40	; 64
+ 16a:	82 bb       	out	0x12, r24	; 18
+ 16c:	82 b3       	in	r24, 0x12	; 18
+ 16e:	80 62       	ori	r24, 0x20	; 32
+ 170:	82 bb       	out	0x12, r24	; 18
+ 172:	82 b3       	in	r24, 0x12	; 18
+ 174:	87 7f       	andi	r24, 0xF7	; 247
+ 176:	82 bb       	out	0x12, r24	; 18
+	if(K5 == 0) return keypad_matrix[3];
+ 178:	9d 9b       	sbis	0x13, 5	; 19
+ 17a:	26 c0       	rjmp	.+76     	; 0x1c8 <KEYPAD_read+0x104>
+	if(K4 == 0) return keypad_matrix[7];
+ 17c:	9c 9b       	sbis	0x13, 4	; 19
+ 17e:	26 c0       	rjmp	.+76     	; 0x1cc <KEYPAD_read+0x108>
+	if(K3 == 0) return keypad_matrix[11];
+ 180:	9b 9b       	sbis	0x13, 3	; 19
+ 182:	26 c0       	rjmp	.+76     	; 0x1d0 <KEYPAD_read+0x10c>
+	if(K2 == 0) return keypad_matrix[15];
+ 184:	9a 9b       	sbis	0x13, 2	; 19
+ 186:	26 c0       	rjmp	.+76     	; 0x1d4 <KEYPAD_read+0x110>
+ 188:	89 ef       	ldi	r24, 0xF9	; 249
+ 18a:	90 e0       	ldi	r25, 0x00	; 0
+ 18c:	01 97       	sbiw	r24, 0x01	; 1
+ 18e:	f1 f7       	brne	.-4      	; 0x18c <KEYPAD_read+0xc8>
+ 190:	00 c0       	rjmp	.+0      	; 0x192 <KEYPAD_read+0xce>
+ 192:	00 00       	nop
+	_delay_ms(1);
+	return 0;
+ 194:	80 e0       	ldi	r24, 0x00	; 0
+ 196:	08 95       	ret
+	INIT_KEYPAD_PIN;
+	
+}
+u8 KEYPAD_read(void){
+	K7D(0); K6D(1); K5D(1); K3D(1);
+	if(K5 == 0) return keypad_matrix[0];
+ 198:	87 e3       	ldi	r24, 0x37	; 55
+ 19a:	08 95       	ret
+	if(K4 == 0) return keypad_matrix[4];
+ 19c:	84 e3       	ldi	r24, 0x34	; 52
+ 19e:	08 95       	ret
+	if(K3 == 0) return keypad_matrix[8];
+ 1a0:	81 e3       	ldi	r24, 0x31	; 49
+ 1a2:	08 95       	ret
+	if(K2 == 0) return keypad_matrix[12];
+ 1a4:	83 e6       	ldi	r24, 0x63	; 99
+ 1a6:	08 95       	ret
+	_delay_ms(1);
+	
+	K7D(1); K6D(0); K5D(1); K3D(1);
+	if(K5 == 0) return keypad_matrix[1];
+ 1a8:	88 e3       	ldi	r24, 0x38	; 56
+ 1aa:	08 95       	ret
+	if(K4 == 0) return keypad_matrix[5];
+ 1ac:	85 e3       	ldi	r24, 0x35	; 53
+ 1ae:	08 95       	ret
+	if(K3 == 0) return keypad_matrix[9];
+ 1b0:	82 e3       	ldi	r24, 0x32	; 50
+ 1b2:	08 95       	ret
+	if(K2 == 0) return keypad_matrix[13];
+ 1b4:	80 e3       	ldi	r24, 0x30	; 48
+ 1b6:	08 95       	ret
+	_delay_ms(1);
+	
+	K7D(1); K6D(1); K5D(0); K3D(1);
+	if(K5 == 0) return keypad_matrix[2];
+ 1b8:	89 e3       	ldi	r24, 0x39	; 57
+ 1ba:	08 95       	ret
+	if(K4 == 0) return keypad_matrix[6];
+ 1bc:	86 e3       	ldi	r24, 0x36	; 54
+ 1be:	08 95       	ret
+	if(K3 == 0) return keypad_matrix[10];
+ 1c0:	83 e3       	ldi	r24, 0x33	; 51
+ 1c2:	08 95       	ret
+	if(K2 == 0) return keypad_matrix[14];
+ 1c4:	8d e3       	ldi	r24, 0x3D	; 61
+ 1c6:	08 95       	ret
+	_delay_ms(1);
+	
+	K7D(1); K6D(1); K5D(1); K3D(0);
+	if(K5 == 0) return keypad_matrix[3];
+ 1c8:	8c e5       	ldi	r24, 0x5C	; 92
+ 1ca:	08 95       	ret
+	if(K4 == 0) return keypad_matrix[7];
+ 1cc:	8a e2       	ldi	r24, 0x2A	; 42
+ 1ce:	08 95       	ret
+	if(K3 == 0) return keypad_matrix[11];
+ 1d0:	8d e2       	ldi	r24, 0x2D	; 45
+ 1d2:	08 95       	ret
+	if(K2 == 0) return keypad_matrix[15];
+ 1d4:	8b e2       	ldi	r24, 0x2B	; 43
+	_delay_ms(1);
+	return 0;
+ 1d6:	08 95       	ret
+
+Disassembly of section .text.main:
+
+000002de <main>:
+volatile GPIO_peripherals* PeripheralC =(volatile GPIO_peripherals*)0x33;
+volatile GPIO_peripherals* PeripheralB =(volatile GPIO_peripherals*)0x36;
+volatile GPIO_peripherals* PeripheralA =(volatile GPIO_peripherals*)0x39;
+int main(void)
+{
+   SEVEN_SEG_init();
+ 2de:	0e 94 51 01 	call	0x2a2	; 0x2a2 <SEVEN_SEG_init>
+   KEYPAD_init();
+ 2e2:	0e 94 79 01 	call	0x2f2	; 0x2f2 <KEYPAD_init>
+   
+   u8 num=0;
+   while(1)
+   {
+	   
+	   num=KEYPAD_read();
+ 2e6:	0e 94 62 00 	call	0xc4	; 0xc4 <_etext>
+	   SEVEN_SEG_write(num-48);
+ 2ea:	80 53       	subi	r24, 0x30	; 48
+ 2ec:	0e 94 ec 00 	call	0x1d8	; 0x1d8 <SEVEN_SEG_write>
+ 2f0:	fa cf       	rjmp	.-12     	; 0x2e6 <main+0x8>
+
+Disassembly of section .text.SEVEN_SEG_init:
+
+000002a2 <SEVEN_SEG_init>:
+extern volatile GPIO_peripherals*PeripheralD;
+extern volatile GPIO_peripherals*PeripheralC;
+extern volatile GPIO_peripherals*PeripheralB;
+extern volatile GPIO_peripherals* PeripheralA;
+void SEVEN_SEG_init(void){
+	 PeripheralB->DDR.value=0b00010111;
+ 2a2:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 2a6:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 2aa:	87 e1       	ldi	r24, 0x17	; 23
+ 2ac:	81 83       	std	Z+1, r24	; 0x01
+	 PeripheralA->DDR.Bit.B2=1;
+ 2ae:	e0 91 60 00 	lds	r30, 0x0060	; 0x800060 <_edata>
+ 2b2:	f0 91 61 00 	lds	r31, 0x0061	; 0x800061 <_edata+0x1>
+ 2b6:	81 81       	ldd	r24, Z+1	; 0x01
+ 2b8:	84 60       	ori	r24, 0x04	; 4
+ 2ba:	81 83       	std	Z+1, r24	; 0x01
+	 PeripheralB->PORT.value=0b0000;
+ 2bc:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 2c0:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 2c4:	12 82       	std	Z+2, r1	; 0x02
+ 2c6:	08 95       	ret
+
+Disassembly of section .text.SEVEN_SEG_write:
+
+000001d8 <SEVEN_SEG_write>:
+}
+void SEVEN_SEG_write(u8 data){ // 0 to 9
+ 1d8:	e8 2f       	mov	r30, r24
+	
+	PeripheralA->PORT.Bit.B2=0;
+ 1da:	a0 91 60 00 	lds	r26, 0x0060	; 0x800060 <_edata>
+ 1de:	b0 91 61 00 	lds	r27, 0x0061	; 0x800061 <_edata+0x1>
+ 1e2:	12 96       	adiw	r26, 0x02	; 2
+ 1e4:	8c 91       	ld	r24, X
+ 1e6:	12 97       	sbiw	r26, 0x02	; 2
+ 1e8:	8b 7f       	andi	r24, 0xFB	; 251
+ 1ea:	12 96       	adiw	r26, 0x02	; 2
+ 1ec:	8c 93       	st	X, r24
+	
+	switch(data)
+ 1ee:	8e 2f       	mov	r24, r30
+ 1f0:	90 e0       	ldi	r25, 0x00	; 0
+ 1f2:	8a 30       	cpi	r24, 0x0A	; 10
+ 1f4:	91 05       	cpc	r25, r1
+ 1f6:	08 f0       	brcs	.+2      	; 0x1fa <SEVEN_SEG_write+0x22>
+ 1f8:	53 c0       	rjmp	.+166    	; 0x2a0 <SEVEN_SEG_write+0xc8>
+ 1fa:	fc 01       	movw	r30, r24
+ 1fc:	e6 5d       	subi	r30, 0xD6	; 214
+ 1fe:	ff 4f       	sbci	r31, 0xFF	; 255
+ 200:	0c 94 80 01 	jmp	0x300	; 0x300 <__tablejump2__>
+	{
+	case 0: 
+	{
+		
+		PeripheralB->PORT.value|=0b00000000; break;
+ 204:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 208:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 20c:	82 81       	ldd	r24, Z+2	; 0x02
+ 20e:	82 83       	std	Z+2, r24	; 0x02
+ 210:	08 95       	ret
+	}
+	case 1:
+	{
+		
+		PeripheralB->PORT.value|=0b00000001; break;
+ 212:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 216:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 21a:	82 81       	ldd	r24, Z+2	; 0x02
+ 21c:	81 60       	ori	r24, 0x01	; 1
+ 21e:	82 83       	std	Z+2, r24	; 0x02
+ 220:	08 95       	ret
+	}
+	case 2:
+	{
+		PeripheralB->PORT.value|=0b00000010; break;
+ 222:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 226:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 22a:	82 81       	ldd	r24, Z+2	; 0x02
+ 22c:	82 60       	ori	r24, 0x02	; 2
+ 22e:	82 83       	std	Z+2, r24	; 0x02
+ 230:	08 95       	ret
+	}
+	case 3:
+	{
+		PeripheralB->PORT.value|=0b00000011; break;
+ 232:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 236:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 23a:	82 81       	ldd	r24, Z+2	; 0x02
+ 23c:	83 60       	ori	r24, 0x03	; 3
+ 23e:	82 83       	std	Z+2, r24	; 0x02
+ 240:	08 95       	ret
+	}
+	case 4:
+	{
+		PeripheralB->PORT.value|=0b00000100; break;
+ 242:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 246:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 24a:	82 81       	ldd	r24, Z+2	; 0x02
+ 24c:	84 60       	ori	r24, 0x04	; 4
+ 24e:	82 83       	std	Z+2, r24	; 0x02
+ 250:	08 95       	ret
+	}
+	case 5:
+	{
+		PeripheralB->PORT.value|=0b00000101; break;
+ 252:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 256:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 25a:	82 81       	ldd	r24, Z+2	; 0x02
+ 25c:	85 60       	ori	r24, 0x05	; 5
+ 25e:	82 83       	std	Z+2, r24	; 0x02
+ 260:	08 95       	ret
+	}
+	case 6:
+	{
+		PeripheralB->PORT.value|=0b00000110; break;
+ 262:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 266:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 26a:	82 81       	ldd	r24, Z+2	; 0x02
+ 26c:	86 60       	ori	r24, 0x06	; 6
+ 26e:	82 83       	std	Z+2, r24	; 0x02
+ 270:	08 95       	ret
+	}
+	case 7:
+	{
+		PeripheralB->PORT.value|=0b00000111; break;
+ 272:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 276:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 27a:	82 81       	ldd	r24, Z+2	; 0x02
+ 27c:	87 60       	ori	r24, 0x07	; 7
+ 27e:	82 83       	std	Z+2, r24	; 0x02
+ 280:	08 95       	ret
+	}
+	case 8:
+	{
+		PeripheralB->PORT.value|=0b00001000; break;
+ 282:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 286:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 28a:	82 81       	ldd	r24, Z+2	; 0x02
+ 28c:	88 60       	ori	r24, 0x08	; 8
+ 28e:	82 83       	std	Z+2, r24	; 0x02
+ 290:	08 95       	ret
+	}
+	case 9:
+	{
+		PeripheralB->PORT.value|=0b00001001; break;
+ 292:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 296:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 29a:	82 81       	ldd	r24, Z+2	; 0x02
+ 29c:	89 60       	ori	r24, 0x09	; 9
+ 29e:	82 83       	std	Z+2, r24	; 0x02
+ 2a0:	08 95       	ret
+
+Disassembly of section .text.libgcc:
+
+00000300 <__tablejump2__>:
+ 300:	ee 0f       	add	r30, r30
+ 302:	ff 1f       	adc	r31, r31
+ 304:	05 90       	lpm	r0, Z+
+ 306:	f4 91       	lpm	r31, Z
+ 308:	e0 2d       	mov	r30, r0
+ 30a:	09 94       	ijmp
+
+Disassembly of section .text.__dummy_fini:
+
+00000314 <_fini>:
+ 314:	08 95       	ret
+
+Disassembly of section .text.__dummy_funcs_on_exit:
+
+00000316 <__funcs_on_exit>:
+ 316:	08 95       	ret
+
+Disassembly of section .text.__dummy_simulator_exit:
+
+00000318 <__simulator_exit>:
+ 318:	08 95       	ret
+
+Disassembly of section .text.exit:
+
+000002c8 <exit>:
+ 2c8:	ec 01       	movw	r28, r24
+ 2ca:	0e 94 8b 01 	call	0x316	; 0x316 <__funcs_on_exit>
+ 2ce:	0e 94 8a 01 	call	0x314	; 0x314 <_fini>
+ 2d2:	ce 01       	movw	r24, r28
+ 2d4:	0e 94 8c 01 	call	0x318	; 0x318 <__simulator_exit>
+ 2d8:	ce 01       	movw	r24, r28
+ 2da:	0e 94 88 01 	call	0x310	; 0x310 <_Exit>
+
+Disassembly of section .text._Exit:
+
+00000310 <_Exit>:
+ 310:	0e 94 60 00 	call	0xc0	; 0xc0 <_exit>

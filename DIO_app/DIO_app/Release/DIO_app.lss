@@ -1,0 +1,363 @@
+
+DIO_app.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000088  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00000290  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  00000290  2**0
+                  CONTENTS, READONLY
+  3 .stack.descriptors.hdr 0000001c  00000000  00000000  000002bf  2**0
+                  CONTENTS, READONLY
+  4 .debug_info   000004e6  00000000  00000000  000002db  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 000004a3  00000000  00000000  000007c1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   00000119  00000000  00000000  00000c64  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    00000196  00000000  00000000  00000d7d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .text         00000002  0000021a  0000021a  0000028e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  9 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000f14  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .text.DIO_voidSetPinDirection 00000096  00000178  00000178  000001ec  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 11 .text.DIO_voidSetPinValue 00000096  000000e2  000000e2  00000156  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 12 .text.startup.main 00000044  00000096  00000096  0000010a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .text.libgcc  0000000c  0000020e  0000020e  00000282  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 14 .text.__dummy_fini 00000002  000000da  000000da  0000014e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.__dummy_funcs_on_exit 00000002  000000e0  000000e0  00000154  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.__dummy_simulator_exit 00000002  000000dc  000000dc  00000150  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.exit    0000000e  00000088  00000088  000000fc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .text._Exit   00000002  000000de  000000de  00000152  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	39 c0       	rjmp	.+114    	; 0x74 <__ctors_end>
+   2:	00 00       	nop
+   4:	0a c1       	rjmp	.+532    	; 0x21a <__bad_interrupt>
+   6:	00 00       	nop
+   8:	08 c1       	rjmp	.+528    	; 0x21a <__bad_interrupt>
+   a:	00 00       	nop
+   c:	06 c1       	rjmp	.+524    	; 0x21a <__bad_interrupt>
+   e:	00 00       	nop
+  10:	04 c1       	rjmp	.+520    	; 0x21a <__bad_interrupt>
+  12:	00 00       	nop
+  14:	02 c1       	rjmp	.+516    	; 0x21a <__bad_interrupt>
+  16:	00 00       	nop
+  18:	00 c1       	rjmp	.+512    	; 0x21a <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	fe c0       	rjmp	.+508    	; 0x21a <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	fc c0       	rjmp	.+504    	; 0x21a <__bad_interrupt>
+  22:	00 00       	nop
+  24:	fa c0       	rjmp	.+500    	; 0x21a <__bad_interrupt>
+  26:	00 00       	nop
+  28:	f8 c0       	rjmp	.+496    	; 0x21a <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	f6 c0       	rjmp	.+492    	; 0x21a <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	f4 c0       	rjmp	.+488    	; 0x21a <__bad_interrupt>
+  32:	00 00       	nop
+  34:	f2 c0       	rjmp	.+484    	; 0x21a <__bad_interrupt>
+  36:	00 00       	nop
+  38:	f0 c0       	rjmp	.+480    	; 0x21a <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	ee c0       	rjmp	.+476    	; 0x21a <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	ec c0       	rjmp	.+472    	; 0x21a <__bad_interrupt>
+  42:	00 00       	nop
+  44:	ea c0       	rjmp	.+468    	; 0x21a <__bad_interrupt>
+  46:	00 00       	nop
+  48:	e8 c0       	rjmp	.+464    	; 0x21a <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	e6 c0       	rjmp	.+460    	; 0x21a <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	e4 c0       	rjmp	.+456    	; 0x21a <__bad_interrupt>
+  52:	00 00       	nop
+  54:	d7 00       	.word	0x00d7	; ????
+  56:	df 00       	.word	0x00df	; ????
+  58:	e7 00       	.word	0x00e7	; ????
+  5a:	ef 00       	.word	0x00ef	; ????
+  5c:	f7 00       	.word	0x00f7	; ????
+  5e:	ff 00       	.word	0x00ff	; ????
+  60:	cf 00       	.word	0x00cf	; ????
+  62:	c7 00       	.word	0x00c7	; ????
+  64:	8c 00       	.word	0x008c	; ????
+  66:	94 00       	.word	0x0094	; ????
+  68:	9c 00       	.word	0x009c	; ????
+  6a:	a4 00       	.word	0x00a4	; ????
+  6c:	ac 00       	.word	0x00ac	; ????
+  6e:	b4 00       	.word	0x00b4	; ????
+  70:	84 00       	.word	0x0084	; ????
+  72:	7c 00       	.word	0x007c	; ????
+
+00000074 <__ctors_end>:
+  74:	11 24       	eor	r1, r1
+  76:	1f be       	out	0x3f, r1	; 63
+  78:	cf e5       	ldi	r28, 0x5F	; 95
+  7a:	d8 e0       	ldi	r29, 0x08	; 8
+  7c:	de bf       	out	0x3e, r29	; 62
+  7e:	cd bf       	out	0x3d, r28	; 61
+  80:	0a d0       	rcall	.+20     	; 0x96 <main>
+  82:	02 c0       	rjmp	.+4      	; 0x88 <_etext>
+
+00000084 <_exit>:
+  84:	f8 94       	cli
+
+00000086 <__stop_program>:
+  86:	ff cf       	rjmp	.-2      	; 0x86 <__stop_program>
+
+Disassembly of section .text:
+
+0000021a <__bad_interrupt>:
+ 21a:	f2 ce       	rjmp	.-540    	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.DIO_voidSetPinDirection:
+
+00000178 <DIO_voidSetPinDirection>:
+ 178:	0f 93       	push	r16
+ 17a:	1f 93       	push	r17
+ 17c:	06 2f       	mov	r16, r22
+ 17e:	10 e0       	ldi	r17, 0x00	; 0
+ 180:	08 30       	cpi	r16, 0x08	; 8
+ 182:	11 05       	cpc	r17, r1
+ 184:	48 f4       	brcc	.+18     	; 0x198 <DIO_voidSetPinDirection+0x20>
+ 186:	f8 01       	movw	r30, r16
+ 188:	e6 5d       	subi	r30, 0xD6	; 214
+ 18a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 18c:	40 c0       	rjmp	.+128    	; 0x20e <__tablejump2__>
+ 18e:	fc 01       	movw	r30, r24
+ 190:	21 81       	ldd	r18, Z+1	; 0x01
+ 192:	40 fb       	bst	r20, 0
+ 194:	27 f9       	bld	r18, 7
+ 196:	21 83       	std	Z+1, r18	; 0x01
+ 198:	1f 91       	pop	r17
+ 19a:	0f 91       	pop	r16
+ 19c:	08 95       	ret
+ 19e:	fc 01       	movw	r30, r24
+ 1a0:	21 81       	ldd	r18, Z+1	; 0x01
+ 1a2:	40 fb       	bst	r20, 0
+ 1a4:	26 f9       	bld	r18, 6
+ 1a6:	21 83       	std	Z+1, r18	; 0x01
+ 1a8:	1f 91       	pop	r17
+ 1aa:	0f 91       	pop	r16
+ 1ac:	08 95       	ret
+ 1ae:	fc 01       	movw	r30, r24
+ 1b0:	21 81       	ldd	r18, Z+1	; 0x01
+ 1b2:	40 fb       	bst	r20, 0
+ 1b4:	20 f9       	bld	r18, 0
+ 1b6:	21 83       	std	Z+1, r18	; 0x01
+ 1b8:	1f 91       	pop	r17
+ 1ba:	0f 91       	pop	r16
+ 1bc:	08 95       	ret
+ 1be:	fc 01       	movw	r30, r24
+ 1c0:	21 81       	ldd	r18, Z+1	; 0x01
+ 1c2:	40 fb       	bst	r20, 0
+ 1c4:	21 f9       	bld	r18, 1
+ 1c6:	21 83       	std	Z+1, r18	; 0x01
+ 1c8:	1f 91       	pop	r17
+ 1ca:	0f 91       	pop	r16
+ 1cc:	08 95       	ret
+ 1ce:	fc 01       	movw	r30, r24
+ 1d0:	21 81       	ldd	r18, Z+1	; 0x01
+ 1d2:	40 fb       	bst	r20, 0
+ 1d4:	22 f9       	bld	r18, 2
+ 1d6:	21 83       	std	Z+1, r18	; 0x01
+ 1d8:	1f 91       	pop	r17
+ 1da:	0f 91       	pop	r16
+ 1dc:	08 95       	ret
+ 1de:	fc 01       	movw	r30, r24
+ 1e0:	21 81       	ldd	r18, Z+1	; 0x01
+ 1e2:	40 fb       	bst	r20, 0
+ 1e4:	23 f9       	bld	r18, 3
+ 1e6:	21 83       	std	Z+1, r18	; 0x01
+ 1e8:	1f 91       	pop	r17
+ 1ea:	0f 91       	pop	r16
+ 1ec:	08 95       	ret
+ 1ee:	fc 01       	movw	r30, r24
+ 1f0:	21 81       	ldd	r18, Z+1	; 0x01
+ 1f2:	40 fb       	bst	r20, 0
+ 1f4:	24 f9       	bld	r18, 4
+ 1f6:	21 83       	std	Z+1, r18	; 0x01
+ 1f8:	1f 91       	pop	r17
+ 1fa:	0f 91       	pop	r16
+ 1fc:	08 95       	ret
+ 1fe:	fc 01       	movw	r30, r24
+ 200:	21 81       	ldd	r18, Z+1	; 0x01
+ 202:	40 fb       	bst	r20, 0
+ 204:	25 f9       	bld	r18, 5
+ 206:	21 83       	std	Z+1, r18	; 0x01
+ 208:	1f 91       	pop	r17
+ 20a:	0f 91       	pop	r16
+ 20c:	08 95       	ret
+
+Disassembly of section .text.DIO_voidSetPinValue:
+
+000000e2 <DIO_voidSetPinValue>:
+  e2:	0f 93       	push	r16
+  e4:	1f 93       	push	r17
+  e6:	06 2f       	mov	r16, r22
+  e8:	10 e0       	ldi	r17, 0x00	; 0
+  ea:	08 30       	cpi	r16, 0x08	; 8
+  ec:	11 05       	cpc	r17, r1
+  ee:	48 f4       	brcc	.+18     	; 0x102 <DIO_voidSetPinValue+0x20>
+  f0:	f8 01       	movw	r30, r16
+  f2:	ee 5c       	subi	r30, 0xCE	; 206
+  f4:	ff 4f       	sbci	r31, 0xFF	; 255
+  f6:	8b c0       	rjmp	.+278    	; 0x20e <__tablejump2__>
+  f8:	fc 01       	movw	r30, r24
+  fa:	22 81       	ldd	r18, Z+2	; 0x02
+  fc:	40 fb       	bst	r20, 0
+  fe:	27 f9       	bld	r18, 7
+ 100:	22 83       	std	Z+2, r18	; 0x02
+ 102:	1f 91       	pop	r17
+ 104:	0f 91       	pop	r16
+ 106:	08 95       	ret
+ 108:	fc 01       	movw	r30, r24
+ 10a:	22 81       	ldd	r18, Z+2	; 0x02
+ 10c:	40 fb       	bst	r20, 0
+ 10e:	26 f9       	bld	r18, 6
+ 110:	22 83       	std	Z+2, r18	; 0x02
+ 112:	1f 91       	pop	r17
+ 114:	0f 91       	pop	r16
+ 116:	08 95       	ret
+ 118:	fc 01       	movw	r30, r24
+ 11a:	22 81       	ldd	r18, Z+2	; 0x02
+ 11c:	40 fb       	bst	r20, 0
+ 11e:	20 f9       	bld	r18, 0
+ 120:	22 83       	std	Z+2, r18	; 0x02
+ 122:	1f 91       	pop	r17
+ 124:	0f 91       	pop	r16
+ 126:	08 95       	ret
+ 128:	fc 01       	movw	r30, r24
+ 12a:	22 81       	ldd	r18, Z+2	; 0x02
+ 12c:	40 fb       	bst	r20, 0
+ 12e:	21 f9       	bld	r18, 1
+ 130:	22 83       	std	Z+2, r18	; 0x02
+ 132:	1f 91       	pop	r17
+ 134:	0f 91       	pop	r16
+ 136:	08 95       	ret
+ 138:	fc 01       	movw	r30, r24
+ 13a:	22 81       	ldd	r18, Z+2	; 0x02
+ 13c:	40 fb       	bst	r20, 0
+ 13e:	22 f9       	bld	r18, 2
+ 140:	22 83       	std	Z+2, r18	; 0x02
+ 142:	1f 91       	pop	r17
+ 144:	0f 91       	pop	r16
+ 146:	08 95       	ret
+ 148:	fc 01       	movw	r30, r24
+ 14a:	22 81       	ldd	r18, Z+2	; 0x02
+ 14c:	40 fb       	bst	r20, 0
+ 14e:	23 f9       	bld	r18, 3
+ 150:	22 83       	std	Z+2, r18	; 0x02
+ 152:	1f 91       	pop	r17
+ 154:	0f 91       	pop	r16
+ 156:	08 95       	ret
+ 158:	fc 01       	movw	r30, r24
+ 15a:	22 81       	ldd	r18, Z+2	; 0x02
+ 15c:	40 fb       	bst	r20, 0
+ 15e:	24 f9       	bld	r18, 4
+ 160:	22 83       	std	Z+2, r18	; 0x02
+ 162:	1f 91       	pop	r17
+ 164:	0f 91       	pop	r16
+ 166:	08 95       	ret
+ 168:	fc 01       	movw	r30, r24
+ 16a:	22 81       	ldd	r18, Z+2	; 0x02
+ 16c:	40 fb       	bst	r20, 0
+ 16e:	25 f9       	bld	r18, 5
+ 170:	22 83       	std	Z+2, r18	; 0x02
+ 172:	1f 91       	pop	r17
+ 174:	0f 91       	pop	r16
+ 176:	08 95       	ret
+
+Disassembly of section .text.startup.main:
+
+00000096 <main>:
+  96:	41 e0       	ldi	r20, 0x01	; 1
+  98:	67 e0       	ldi	r22, 0x07	; 7
+  9a:	86 e3       	ldi	r24, 0x36	; 54
+  9c:	90 e0       	ldi	r25, 0x00	; 0
+  9e:	6c d0       	rcall	.+216    	; 0x178 <DIO_voidSetPinDirection>
+  a0:	2f e9       	ldi	r18, 0x9F	; 159
+  a2:	86 e8       	ldi	r24, 0x86	; 134
+  a4:	91 e0       	ldi	r25, 0x01	; 1
+  a6:	21 50       	subi	r18, 0x01	; 1
+  a8:	80 40       	sbci	r24, 0x00	; 0
+  aa:	90 40       	sbci	r25, 0x00	; 0
+  ac:	e1 f7       	brne	.-8      	; 0xa6 <main+0x10>
+  ae:	00 c0       	rjmp	.+0      	; 0xb0 <main+0x1a>
+  b0:	00 00       	nop
+  b2:	41 e0       	ldi	r20, 0x01	; 1
+  b4:	67 e0       	ldi	r22, 0x07	; 7
+  b6:	86 e3       	ldi	r24, 0x36	; 54
+  b8:	90 e0       	ldi	r25, 0x00	; 0
+  ba:	13 d0       	rcall	.+38     	; 0xe2 <DIO_voidSetPinValue>
+  bc:	2f e9       	ldi	r18, 0x9F	; 159
+  be:	86 e8       	ldi	r24, 0x86	; 134
+  c0:	91 e0       	ldi	r25, 0x01	; 1
+  c2:	21 50       	subi	r18, 0x01	; 1
+  c4:	80 40       	sbci	r24, 0x00	; 0
+  c6:	90 40       	sbci	r25, 0x00	; 0
+  c8:	e1 f7       	brne	.-8      	; 0xc2 <main+0x2c>
+  ca:	00 c0       	rjmp	.+0      	; 0xcc <main+0x36>
+  cc:	00 00       	nop
+  ce:	40 e0       	ldi	r20, 0x00	; 0
+  d0:	67 e0       	ldi	r22, 0x07	; 7
+  d2:	86 e3       	ldi	r24, 0x36	; 54
+  d4:	90 e0       	ldi	r25, 0x00	; 0
+  d6:	05 d0       	rcall	.+10     	; 0xe2 <DIO_voidSetPinValue>
+  d8:	e3 cf       	rjmp	.-58     	; 0xa0 <main+0xa>
+
+Disassembly of section .text.libgcc:
+
+0000020e <__tablejump2__>:
+ 20e:	ee 0f       	add	r30, r30
+ 210:	ff 1f       	adc	r31, r31
+ 212:	05 90       	lpm	r0, Z+
+ 214:	f4 91       	lpm	r31, Z
+ 216:	e0 2d       	mov	r30, r0
+ 218:	09 94       	ijmp
+
+Disassembly of section .text.__dummy_fini:
+
+000000da <_fini>:
+  da:	08 95       	ret
+
+Disassembly of section .text.__dummy_funcs_on_exit:
+
+000000e0 <__funcs_on_exit>:
+  e0:	08 95       	ret
+
+Disassembly of section .text.__dummy_simulator_exit:
+
+000000dc <__simulator_exit>:
+  dc:	08 95       	ret
+
+Disassembly of section .text.exit:
+
+00000088 <exit>:
+  88:	ec 01       	movw	r28, r24
+  8a:	2a d0       	rcall	.+84     	; 0xe0 <__funcs_on_exit>
+  8c:	26 d0       	rcall	.+76     	; 0xda <_fini>
+  8e:	ce 01       	movw	r24, r28
+  90:	25 d0       	rcall	.+74     	; 0xdc <__simulator_exit>
+  92:	ce 01       	movw	r24, r28
+  94:	24 d0       	rcall	.+72     	; 0xde <_Exit>
+
+Disassembly of section .text._Exit:
+
+000000de <_Exit>:
+  de:	d2 df       	rcall	.-92     	; 0x84 <_exit>

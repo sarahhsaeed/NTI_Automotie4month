@@ -1,0 +1,930 @@
+
+ADC_app.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000d4  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  0000051a  000005ae  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  000005ae  2**0
+                  CONTENTS, READONLY
+  3 .stack.descriptors.hdr 0000001c  00000000  00000000  000005dd  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 000000b8  00000000  00000000  000005f9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   0000176b  00000000  00000000  000006b1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000969  00000000  00000000  00001e1c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000075f  00000000  00000000  00002785  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000124  00000000  00000000  00002ee4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000022b  00000000  00000000  00003008  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000327  00000000  00000000  00003233  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000078  00000000  00000000  0000355a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .text         00000004  00000508  00000508  0000059c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000035d4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .text.ADC_Init 0000001a  000004b6  000004b6  0000054a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.ADC_getDigitalValueSynchNonBlocking 00000016  000004d0  000004d0  00000564  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.DIO_voidSetPinDirection 0000007c  000003c0  000003c0  00000454  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.main    00000032  00000484  00000484  00000518  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .data.PeripheralA 00000002  00800060  00000516  000005aa  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 19 .data.PeripheralB 00000002  00800062  00000518  000005ac  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 20 .text.SEVEN_SEG_init 00000048  0000043c  0000043c  000004d0  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .text.SEVEN_SEG_one_number 0000025e  000000d4  000000d4  00000168  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .text.SEVEN_SEG_two_numbers 0000008e  00000332  00000332  000003c6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 23 .text.libgcc  0000000c  000004fc  000004fc  00000590  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 24 .text.__dummy_fini 00000002  00000510  00000510  000005a4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 25 .text.__dummy_funcs_on_exit 00000002  00000512  00000512  000005a6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 26 .text.__dummy_simulator_exit 00000002  00000514  00000514  000005a8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 27 .text.exit    00000016  000004e6  000004e6  0000057a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 28 .text._Exit   00000004  0000050c  0000050c  000005a0  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 40 00 	jmp	0x80	; 0x80 <__ctors_end>
+   4:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+   8:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+   c:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+  10:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+  14:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+  18:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+  1c:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+  20:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+  24:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+  28:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+  2c:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+  30:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+  34:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+  38:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+  3c:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+  40:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+  44:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+  48:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+  4c:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+  50:	0c 94 84 02 	jmp	0x508	; 0x508 <__bad_interrupt>
+  54:	ec 01       	movw	r28, r24
+  56:	f2 01       	movw	r30, r4
+  58:	f8 01       	movw	r30, r16
+  5a:	fe 01       	movw	r30, r28
+  5c:	04 02       	muls	r16, r20
+  5e:	0a 02       	muls	r16, r26
+  60:	10 02       	muls	r17, r16
+  62:	16 02       	muls	r17, r22
+  64:	81 00       	.word	0x0081	; ????
+  66:	9d 00       	.word	0x009d	; ????
+  68:	b9 00       	.word	0x00b9	; ????
+  6a:	d5 00       	.word	0x00d5	; ????
+  6c:	f1 00       	.word	0x00f1	; ????
+  6e:	0d 01       	movw	r0, r26
+  70:	29 01       	movw	r4, r18
+  72:	45 01       	movw	r8, r10
+  74:	61 01       	movw	r12, r2
+  76:	7d 01       	movw	r14, r26
+
+00000078 <.dinit>:
+  78:	00 60       	ori	r16, 0x00	; 0
+  7a:	00 64       	ori	r16, 0x40	; 64
+  7c:	00 05       	cpc	r16, r0
+  7e:	16 00       	.word	0x0016	; ????
+
+00000080 <__ctors_end>:
+  80:	11 24       	eor	r1, r1
+  82:	1f be       	out	0x3f, r1	; 63
+  84:	cf e5       	ldi	r28, 0x5F	; 95
+  86:	d8 e0       	ldi	r29, 0x08	; 8
+  88:	de bf       	out	0x3e, r29	; 62
+  8a:	cd bf       	out	0x3d, r28	; 61
+
+0000008c <__do_copy_data>:
+  8c:	e8 e7       	ldi	r30, 0x78	; 120
+  8e:	f0 e0       	ldi	r31, 0x00	; 0
+  90:	40 e0       	ldi	r20, 0x00	; 0
+  92:	17 c0       	rjmp	.+46     	; 0xc2 <__do_clear_bss+0x8>
+  94:	b5 91       	lpm	r27, Z+
+  96:	a5 91       	lpm	r26, Z+
+  98:	35 91       	lpm	r19, Z+
+  9a:	25 91       	lpm	r18, Z+
+  9c:	05 91       	lpm	r16, Z+
+  9e:	07 fd       	sbrc	r16, 7
+  a0:	0c c0       	rjmp	.+24     	; 0xba <__do_clear_bss>
+  a2:	95 91       	lpm	r25, Z+
+  a4:	85 91       	lpm	r24, Z+
+  a6:	ef 01       	movw	r28, r30
+  a8:	f9 2f       	mov	r31, r25
+  aa:	e8 2f       	mov	r30, r24
+  ac:	05 90       	lpm	r0, Z+
+  ae:	0d 92       	st	X+, r0
+  b0:	a2 17       	cp	r26, r18
+  b2:	b3 07       	cpc	r27, r19
+  b4:	d9 f7       	brne	.-10     	; 0xac <__do_copy_data+0x20>
+  b6:	fe 01       	movw	r30, r28
+  b8:	04 c0       	rjmp	.+8      	; 0xc2 <__do_clear_bss+0x8>
+
+000000ba <__do_clear_bss>:
+  ba:	1d 92       	st	X+, r1
+  bc:	a2 17       	cp	r26, r18
+  be:	b3 07       	cpc	r27, r19
+  c0:	e1 f7       	brne	.-8      	; 0xba <__do_clear_bss>
+  c2:	ef 37       	cpi	r30, 0x7F	; 127
+  c4:	f4 07       	cpc	r31, r20
+  c6:	31 f7       	brne	.-52     	; 0x94 <__do_copy_data+0x8>
+  c8:	0e 94 42 02 	call	0x484	; 0x484 <main>
+  cc:	0c 94 73 02 	jmp	0x4e6	; 0x4e6 <exit>
+
+000000d0 <_exit>:
+  d0:	f8 94       	cli
+
+000000d2 <__stop_program>:
+  d2:	ff cf       	rjmp	.-2      	; 0xd2 <__stop_program>
+
+Disassembly of section .text:
+
+00000508 <__bad_interrupt>:
+ 508:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.ADC_Init:
+
+000004b6 <ADC_Init>:
+#include "ADC.h"
+
+
+void ADC_Init(void)
+{
+	SETBIT(ADCMUX_ADDRESS,6);//REF0
+ 4b6:	87 b1       	in	r24, 0x07	; 7
+ 4b8:	80 64       	ori	r24, 0x40	; 64
+ 4ba:	87 b9       	out	0x07, r24	; 7
+	SETBIT(ADCSRA_ADDRESS,7);//ADEN enable
+ 4bc:	86 b1       	in	r24, 0x06	; 6
+ 4be:	80 68       	ori	r24, 0x80	; 128
+ 4c0:	86 b9       	out	0x06, r24	; 6
+	SETBIT(ADCSRA_ADDRESS,0);
+ 4c2:	86 b1       	in	r24, 0x06	; 6
+ 4c4:	81 60       	ori	r24, 0x01	; 1
+ 4c6:	86 b9       	out	0x06, r24	; 6
+	SETBIT(ADCSRA_ADDRESS,1);//prescaler 8	
+ 4c8:	86 b1       	in	r24, 0x06	; 6
+ 4ca:	82 60       	ori	r24, 0x02	; 2
+ 4cc:	86 b9       	out	0x06, r24	; 6
+ 4ce:	08 95       	ret
+
+Disassembly of section .text.ADC_getDigitalValueSynchNonBlocking:
+
+000004d0 <ADC_getDigitalValueSynchNonBlocking>:
+}
+
+u16 ADC_getDigitalValueSynchNonBlocking(void)
+{
+	u16 result=0;
+	SETBIT(ADCMUX_ADDRESS,6);//start conversion
+ 4d0:	87 b1       	in	r24, 0x07	; 7
+ 4d2:	80 64       	ori	r24, 0x40	; 64
+ 4d4:	87 b9       	out	0x07, r24	; 7
+	if(READBIT(ADCMUX_ADDRESS,6)==0)
+ 4d6:	3e 99       	sbic	0x07, 6	; 7
+ 4d8:	03 c0       	rjmp	.+6      	; 0x4e0 <ADC_getDigitalValueSynchNonBlocking+0x10>
+	{
+		result= ADCH_ADDRESS;
+ 4da:	85 b1       	in	r24, 0x05	; 5
+ 4dc:	90 e0       	ldi	r25, 0x00	; 0
+ 4de:	08 95       	ret
+	SETBIT(ADCSRA_ADDRESS,1);//prescaler 8	
+}
+
+u16 ADC_getDigitalValueSynchNonBlocking(void)
+{
+	u16 result=0;
+ 4e0:	80 e0       	ldi	r24, 0x00	; 0
+ 4e2:	90 e0       	ldi	r25, 0x00	; 0
+	if(READBIT(ADCMUX_ADDRESS,6)==0)
+	{
+		result= ADCH_ADDRESS;
+	}
+	return result;
+}
+ 4e4:	08 95       	ret
+
+Disassembly of section .text.DIO_voidSetPinDirection:
+
+000003c0 <DIO_voidSetPinDirection>:
+ *  Author: Sarah saeed
+ */ 
+#include "DIO_private.h"
+
+
+void DIO_voidSetPinDirection( GPIO_peripherals *ptr, u8 Copy_u8PinId, u8 Copy_u8Direction){
+ 3c0:	0f 93       	push	r16
+ 3c2:	1f 93       	push	r17
+
+	switch (Copy_u8PinId){
+ 3c4:	06 2f       	mov	r16, r22
+ 3c6:	10 e0       	ldi	r17, 0x00	; 0
+ 3c8:	08 30       	cpi	r16, 0x08	; 8
+ 3ca:	11 05       	cpc	r17, r1
+ 3cc:	a0 f5       	brcc	.+104    	; 0x436 <__EEPROM_REGION_LENGTH__+0x36>
+ 3ce:	f8 01       	movw	r30, r16
+ 3d0:	e6 5d       	subi	r30, 0xD6	; 214
+ 3d2:	ff 4f       	sbci	r31, 0xFF	; 255
+ 3d4:	0c 94 7e 02 	jmp	0x4fc	; 0x4fc <__tablejump2__>
+		case 0:
+		ptr->DDR.Bit.B0 = Copy_u8Direction;
+ 3d8:	fc 01       	movw	r30, r24
+ 3da:	21 81       	ldd	r18, Z+1	; 0x01
+ 3dc:	40 fb       	bst	r20, 0
+ 3de:	20 f9       	bld	r18, 0
+ 3e0:	21 83       	std	Z+1, r18	; 0x01
+		break;
+ 3e2:	29 c0       	rjmp	.+82     	; 0x436 <__EEPROM_REGION_LENGTH__+0x36>
+		case 1:
+		ptr->DDR.Bit.B1 = Copy_u8Direction;
+ 3e4:	fc 01       	movw	r30, r24
+ 3e6:	21 81       	ldd	r18, Z+1	; 0x01
+ 3e8:	40 fb       	bst	r20, 0
+ 3ea:	21 f9       	bld	r18, 1
+ 3ec:	21 83       	std	Z+1, r18	; 0x01
+		break;
+ 3ee:	23 c0       	rjmp	.+70     	; 0x436 <__EEPROM_REGION_LENGTH__+0x36>
+		case 2:
+		ptr->DDR.Bit.B2 = Copy_u8Direction;
+ 3f0:	fc 01       	movw	r30, r24
+ 3f2:	21 81       	ldd	r18, Z+1	; 0x01
+ 3f4:	40 fb       	bst	r20, 0
+ 3f6:	22 f9       	bld	r18, 2
+ 3f8:	21 83       	std	Z+1, r18	; 0x01
+		break;
+ 3fa:	1d c0       	rjmp	.+58     	; 0x436 <__EEPROM_REGION_LENGTH__+0x36>
+		case 3:
+		ptr->DDR.Bit.B3 = Copy_u8Direction;
+ 3fc:	fc 01       	movw	r30, r24
+ 3fe:	21 81       	ldd	r18, Z+1	; 0x01
+ 400:	40 fb       	bst	r20, 0
+ 402:	23 f9       	bld	r18, 3
+ 404:	21 83       	std	Z+1, r18	; 0x01
+		break;
+ 406:	17 c0       	rjmp	.+46     	; 0x436 <__EEPROM_REGION_LENGTH__+0x36>
+		case 4:
+		ptr->DDR.Bit.B4 = Copy_u8Direction;
+ 408:	fc 01       	movw	r30, r24
+ 40a:	21 81       	ldd	r18, Z+1	; 0x01
+ 40c:	40 fb       	bst	r20, 0
+ 40e:	24 f9       	bld	r18, 4
+ 410:	21 83       	std	Z+1, r18	; 0x01
+		break;
+ 412:	11 c0       	rjmp	.+34     	; 0x436 <__EEPROM_REGION_LENGTH__+0x36>
+		case 5:
+		ptr->DDR.Bit.B5 = Copy_u8Direction;
+ 414:	fc 01       	movw	r30, r24
+ 416:	21 81       	ldd	r18, Z+1	; 0x01
+ 418:	40 fb       	bst	r20, 0
+ 41a:	25 f9       	bld	r18, 5
+ 41c:	21 83       	std	Z+1, r18	; 0x01
+		break;
+ 41e:	0b c0       	rjmp	.+22     	; 0x436 <__EEPROM_REGION_LENGTH__+0x36>
+		case 6:
+		ptr->DDR.Bit.B6= Copy_u8Direction;
+ 420:	fc 01       	movw	r30, r24
+ 422:	21 81       	ldd	r18, Z+1	; 0x01
+ 424:	40 fb       	bst	r20, 0
+ 426:	26 f9       	bld	r18, 6
+ 428:	21 83       	std	Z+1, r18	; 0x01
+		break;
+ 42a:	05 c0       	rjmp	.+10     	; 0x436 <__EEPROM_REGION_LENGTH__+0x36>
+		case 7:
+		ptr->DDR.Bit.B7 = Copy_u8Direction;
+ 42c:	fc 01       	movw	r30, r24
+ 42e:	21 81       	ldd	r18, Z+1	; 0x01
+ 430:	40 fb       	bst	r20, 0
+ 432:	27 f9       	bld	r18, 7
+ 434:	21 83       	std	Z+1, r18	; 0x01
+		break;
+		default:
+		break;
+	}
+}
+ 436:	1f 91       	pop	r17
+ 438:	0f 91       	pop	r16
+ 43a:	08 95       	ret
+
+Disassembly of section .text.main:
+
+00000484 <main>:
+volatile GPIO_peripherals* PeripheralC =(volatile GPIO_peripherals*)0x33;
+volatile GPIO_peripherals* PeripheralB =(volatile GPIO_peripherals*)0x36;
+volatile GPIO_peripherals* PeripheralA =(volatile GPIO_peripherals*)0x39;
+int main(void)
+{
+	ADC_Init();
+ 484:	0e 94 5b 02 	call	0x4b6	; 0x4b6 <ADC_Init>
+	SEVEN_SEG_init();
+ 488:	0e 94 1e 02 	call	0x43c	; 0x43c <SEVEN_SEG_init>
+	DIO_voidSetPinDirection(PeripheralA,0,0);
+ 48c:	40 e0       	ldi	r20, 0x00	; 0
+ 48e:	50 e0       	ldi	r21, 0x00	; 0
+ 490:	60 e0       	ldi	r22, 0x00	; 0
+ 492:	70 e0       	ldi	r23, 0x00	; 0
+ 494:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 498:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 49c:	0e 94 e0 01 	call	0x3c0	; 0x3c0 <DIO_voidSetPinDirection>
+	u16 read=0;
+    while(1)
+    {
+		read=ADC_getDigitalValueSynchNonBlocking();
+ 4a0:	0e 94 68 02 	call	0x4d0	; 0x4d0 <ADC_getDigitalValueSynchNonBlocking>
+		SEVEN_SEG_two_numbers(read);
+ 4a4:	0e 94 99 01 	call	0x332	; 0x332 <SEVEN_SEG_two_numbers>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 4a8:	83 ec       	ldi	r24, 0xC3	; 195
+ 4aa:	99 e0       	ldi	r25, 0x09	; 9
+ 4ac:	01 97       	sbiw	r24, 0x01	; 1
+ 4ae:	f1 f7       	brne	.-4      	; 0x4ac <main+0x28>
+ 4b0:	00 c0       	rjmp	.+0      	; 0x4b2 <main+0x2e>
+ 4b2:	00 00       	nop
+ 4b4:	f5 cf       	rjmp	.-22     	; 0x4a0 <main+0x1c>
+
+Disassembly of section .text.SEVEN_SEG_init:
+
+0000043c <SEVEN_SEG_init>:
+extern volatile GPIO_peripherals*PeripheralD;
+extern volatile GPIO_peripherals*PeripheralC;
+extern volatile GPIO_peripherals*PeripheralB;
+extern volatile GPIO_peripherals*PeripheralA;
+void SEVEN_SEG_init(void){
+	 PeripheralB->DDR.Bit.B0=1;
+ 43c:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 440:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 444:	81 81       	ldd	r24, Z+1	; 0x01
+ 446:	81 60       	ori	r24, 0x01	; 1
+ 448:	81 83       	std	Z+1, r24	; 0x01
+	 PeripheralB->DDR.Bit.B1=1;
+ 44a:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 44e:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 452:	81 81       	ldd	r24, Z+1	; 0x01
+ 454:	82 60       	ori	r24, 0x02	; 2
+ 456:	81 83       	std	Z+1, r24	; 0x01
+	 PeripheralB->DDR.Bit.B2=1;
+ 458:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 45c:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 460:	81 81       	ldd	r24, Z+1	; 0x01
+ 462:	84 60       	ori	r24, 0x04	; 4
+ 464:	81 83       	std	Z+1, r24	; 0x01
+	 PeripheralB->DDR.Bit.B4=1;
+ 466:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 46a:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 46e:	81 81       	ldd	r24, Z+1	; 0x01
+ 470:	80 61       	ori	r24, 0x10	; 16
+ 472:	81 83       	std	Z+1, r24	; 0x01
+	 
+	 PeripheralB->DDR.Bit.B5=1;
+ 474:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 478:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 47c:	81 81       	ldd	r24, Z+1	; 0x01
+ 47e:	80 62       	ori	r24, 0x20	; 32
+ 480:	81 83       	std	Z+1, r24	; 0x01
+ 482:	08 95       	ret
+
+Disassembly of section .text.SEVEN_SEG_one_number:
+
+000000d4 <SEVEN_SEG_one_number>:
+	 //PeripheralB->DDR.Bit.B6=1;
+}
+void SEVEN_SEG_one_number(u8 data){ // 0 to 9
+  d4:	e8 2f       	mov	r30, r24
+	PeripheralB->PORT.Bit.B5=0;
+  d6:	a0 91 62 00 	lds	r26, 0x0062	; 0x800062 <PeripheralB>
+  da:	b0 91 63 00 	lds	r27, 0x0063	; 0x800063 <PeripheralB+0x1>
+  de:	12 96       	adiw	r26, 0x02	; 2
+  e0:	8c 91       	ld	r24, X
+  e2:	12 97       	sbiw	r26, 0x02	; 2
+  e4:	8f 7d       	andi	r24, 0xDF	; 223
+  e6:	12 96       	adiw	r26, 0x02	; 2
+  e8:	8c 93       	st	X, r24
+  ea:	12 97       	sbiw	r26, 0x02	; 2
+	switch(data)
+  ec:	4e 2f       	mov	r20, r30
+  ee:	50 e0       	ldi	r21, 0x00	; 0
+  f0:	4a 30       	cpi	r20, 0x0A	; 10
+  f2:	51 05       	cpc	r21, r1
+  f4:	08 f0       	brcs	.+2      	; 0xf8 <SEVEN_SEG_one_number+0x24>
+  f6:	1c c1       	rjmp	.+568    	; 0x330 <SEVEN_SEG_one_number+0x25c>
+  f8:	fa 01       	movw	r30, r20
+  fa:	ee 5c       	subi	r30, 0xCE	; 206
+  fc:	ff 4f       	sbci	r31, 0xFF	; 255
+  fe:	0c 94 7e 02 	jmp	0x4fc	; 0x4fc <__tablejump2__>
+	{
+		case 0:
+		{
+			PeripheralB->PORT.Bit.B0=0;
+ 102:	12 96       	adiw	r26, 0x02	; 2
+ 104:	8c 91       	ld	r24, X
+ 106:	12 97       	sbiw	r26, 0x02	; 2
+ 108:	8e 7f       	andi	r24, 0xFE	; 254
+ 10a:	12 96       	adiw	r26, 0x02	; 2
+ 10c:	8c 93       	st	X, r24
+ 10e:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B1=0;
+ 110:	12 96       	adiw	r26, 0x02	; 2
+ 112:	8c 91       	ld	r24, X
+ 114:	12 97       	sbiw	r26, 0x02	; 2
+ 116:	8d 7f       	andi	r24, 0xFD	; 253
+ 118:	12 96       	adiw	r26, 0x02	; 2
+ 11a:	8c 93       	st	X, r24
+ 11c:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B2=0;
+ 11e:	12 96       	adiw	r26, 0x02	; 2
+ 120:	8c 91       	ld	r24, X
+ 122:	12 97       	sbiw	r26, 0x02	; 2
+ 124:	8b 7f       	andi	r24, 0xFB	; 251
+ 126:	12 96       	adiw	r26, 0x02	; 2
+ 128:	8c 93       	st	X, r24
+ 12a:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B4=0;
+ 12c:	12 96       	adiw	r26, 0x02	; 2
+ 12e:	8c 91       	ld	r24, X
+ 130:	12 97       	sbiw	r26, 0x02	; 2
+ 132:	8f 7e       	andi	r24, 0xEF	; 239
+ 134:	12 96       	adiw	r26, 0x02	; 2
+ 136:	8c 93       	st	X, r24
+			break;
+ 138:	08 95       	ret
+		}
+		case 1:
+		{
+			
+			PeripheralB->PORT.Bit.B0=1;
+ 13a:	12 96       	adiw	r26, 0x02	; 2
+ 13c:	8c 91       	ld	r24, X
+ 13e:	12 97       	sbiw	r26, 0x02	; 2
+ 140:	81 60       	ori	r24, 0x01	; 1
+ 142:	12 96       	adiw	r26, 0x02	; 2
+ 144:	8c 93       	st	X, r24
+ 146:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B1=0;
+ 148:	12 96       	adiw	r26, 0x02	; 2
+ 14a:	8c 91       	ld	r24, X
+ 14c:	12 97       	sbiw	r26, 0x02	; 2
+ 14e:	8d 7f       	andi	r24, 0xFD	; 253
+ 150:	12 96       	adiw	r26, 0x02	; 2
+ 152:	8c 93       	st	X, r24
+ 154:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B2=0;
+ 156:	12 96       	adiw	r26, 0x02	; 2
+ 158:	8c 91       	ld	r24, X
+ 15a:	12 97       	sbiw	r26, 0x02	; 2
+ 15c:	8b 7f       	andi	r24, 0xFB	; 251
+ 15e:	12 96       	adiw	r26, 0x02	; 2
+ 160:	8c 93       	st	X, r24
+ 162:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B4=0;
+ 164:	12 96       	adiw	r26, 0x02	; 2
+ 166:	8c 91       	ld	r24, X
+ 168:	12 97       	sbiw	r26, 0x02	; 2
+ 16a:	8f 7e       	andi	r24, 0xEF	; 239
+ 16c:	12 96       	adiw	r26, 0x02	; 2
+ 16e:	8c 93       	st	X, r24
+			break;
+ 170:	08 95       	ret
+		}
+		case 2:
+		{
+			PeripheralB->PORT.Bit.B0=0;
+ 172:	12 96       	adiw	r26, 0x02	; 2
+ 174:	8c 91       	ld	r24, X
+ 176:	12 97       	sbiw	r26, 0x02	; 2
+ 178:	8e 7f       	andi	r24, 0xFE	; 254
+ 17a:	12 96       	adiw	r26, 0x02	; 2
+ 17c:	8c 93       	st	X, r24
+ 17e:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B1=1;
+ 180:	12 96       	adiw	r26, 0x02	; 2
+ 182:	8c 91       	ld	r24, X
+ 184:	12 97       	sbiw	r26, 0x02	; 2
+ 186:	82 60       	ori	r24, 0x02	; 2
+ 188:	12 96       	adiw	r26, 0x02	; 2
+ 18a:	8c 93       	st	X, r24
+ 18c:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B2=0;
+ 18e:	12 96       	adiw	r26, 0x02	; 2
+ 190:	8c 91       	ld	r24, X
+ 192:	12 97       	sbiw	r26, 0x02	; 2
+ 194:	8b 7f       	andi	r24, 0xFB	; 251
+ 196:	12 96       	adiw	r26, 0x02	; 2
+ 198:	8c 93       	st	X, r24
+ 19a:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B4=0;
+ 19c:	12 96       	adiw	r26, 0x02	; 2
+ 19e:	8c 91       	ld	r24, X
+ 1a0:	12 97       	sbiw	r26, 0x02	; 2
+ 1a2:	8f 7e       	andi	r24, 0xEF	; 239
+ 1a4:	12 96       	adiw	r26, 0x02	; 2
+ 1a6:	8c 93       	st	X, r24
+			break;
+ 1a8:	08 95       	ret
+		}
+		case 3:
+		{
+			PeripheralB->PORT.Bit.B0=1;
+ 1aa:	12 96       	adiw	r26, 0x02	; 2
+ 1ac:	8c 91       	ld	r24, X
+ 1ae:	12 97       	sbiw	r26, 0x02	; 2
+ 1b0:	81 60       	ori	r24, 0x01	; 1
+ 1b2:	12 96       	adiw	r26, 0x02	; 2
+ 1b4:	8c 93       	st	X, r24
+ 1b6:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B1=1;
+ 1b8:	12 96       	adiw	r26, 0x02	; 2
+ 1ba:	8c 91       	ld	r24, X
+ 1bc:	12 97       	sbiw	r26, 0x02	; 2
+ 1be:	82 60       	ori	r24, 0x02	; 2
+ 1c0:	12 96       	adiw	r26, 0x02	; 2
+ 1c2:	8c 93       	st	X, r24
+ 1c4:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B2=0;
+ 1c6:	12 96       	adiw	r26, 0x02	; 2
+ 1c8:	8c 91       	ld	r24, X
+ 1ca:	12 97       	sbiw	r26, 0x02	; 2
+ 1cc:	8b 7f       	andi	r24, 0xFB	; 251
+ 1ce:	12 96       	adiw	r26, 0x02	; 2
+ 1d0:	8c 93       	st	X, r24
+ 1d2:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B4=0;
+ 1d4:	12 96       	adiw	r26, 0x02	; 2
+ 1d6:	8c 91       	ld	r24, X
+ 1d8:	12 97       	sbiw	r26, 0x02	; 2
+ 1da:	8f 7e       	andi	r24, 0xEF	; 239
+ 1dc:	12 96       	adiw	r26, 0x02	; 2
+ 1de:	8c 93       	st	X, r24
+			break;
+ 1e0:	08 95       	ret
+		}
+		case 4:
+		{
+			PeripheralB->PORT.Bit.B0=0;
+ 1e2:	12 96       	adiw	r26, 0x02	; 2
+ 1e4:	8c 91       	ld	r24, X
+ 1e6:	12 97       	sbiw	r26, 0x02	; 2
+ 1e8:	8e 7f       	andi	r24, 0xFE	; 254
+ 1ea:	12 96       	adiw	r26, 0x02	; 2
+ 1ec:	8c 93       	st	X, r24
+ 1ee:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B1=0;
+ 1f0:	12 96       	adiw	r26, 0x02	; 2
+ 1f2:	8c 91       	ld	r24, X
+ 1f4:	12 97       	sbiw	r26, 0x02	; 2
+ 1f6:	8d 7f       	andi	r24, 0xFD	; 253
+ 1f8:	12 96       	adiw	r26, 0x02	; 2
+ 1fa:	8c 93       	st	X, r24
+ 1fc:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B2=1;
+ 1fe:	12 96       	adiw	r26, 0x02	; 2
+ 200:	8c 91       	ld	r24, X
+ 202:	12 97       	sbiw	r26, 0x02	; 2
+ 204:	84 60       	ori	r24, 0x04	; 4
+ 206:	12 96       	adiw	r26, 0x02	; 2
+ 208:	8c 93       	st	X, r24
+ 20a:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B4=0;
+ 20c:	12 96       	adiw	r26, 0x02	; 2
+ 20e:	8c 91       	ld	r24, X
+ 210:	12 97       	sbiw	r26, 0x02	; 2
+ 212:	8f 7e       	andi	r24, 0xEF	; 239
+ 214:	12 96       	adiw	r26, 0x02	; 2
+ 216:	8c 93       	st	X, r24
+			break;
+ 218:	08 95       	ret
+		}
+		case 5:
+		{
+			PeripheralB->PORT.Bit.B0=1;
+ 21a:	12 96       	adiw	r26, 0x02	; 2
+ 21c:	8c 91       	ld	r24, X
+ 21e:	12 97       	sbiw	r26, 0x02	; 2
+ 220:	81 60       	ori	r24, 0x01	; 1
+ 222:	12 96       	adiw	r26, 0x02	; 2
+ 224:	8c 93       	st	X, r24
+ 226:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B1=0;
+ 228:	12 96       	adiw	r26, 0x02	; 2
+ 22a:	8c 91       	ld	r24, X
+ 22c:	12 97       	sbiw	r26, 0x02	; 2
+ 22e:	8d 7f       	andi	r24, 0xFD	; 253
+ 230:	12 96       	adiw	r26, 0x02	; 2
+ 232:	8c 93       	st	X, r24
+ 234:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B2=1;
+ 236:	12 96       	adiw	r26, 0x02	; 2
+ 238:	8c 91       	ld	r24, X
+ 23a:	12 97       	sbiw	r26, 0x02	; 2
+ 23c:	84 60       	ori	r24, 0x04	; 4
+ 23e:	12 96       	adiw	r26, 0x02	; 2
+ 240:	8c 93       	st	X, r24
+ 242:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B4=0;
+ 244:	12 96       	adiw	r26, 0x02	; 2
+ 246:	8c 91       	ld	r24, X
+ 248:	12 97       	sbiw	r26, 0x02	; 2
+ 24a:	8f 7e       	andi	r24, 0xEF	; 239
+ 24c:	12 96       	adiw	r26, 0x02	; 2
+ 24e:	8c 93       	st	X, r24
+			break;
+ 250:	08 95       	ret
+		}
+		case 6:
+		{
+			PeripheralB->PORT.Bit.B0=0;
+ 252:	12 96       	adiw	r26, 0x02	; 2
+ 254:	8c 91       	ld	r24, X
+ 256:	12 97       	sbiw	r26, 0x02	; 2
+ 258:	8e 7f       	andi	r24, 0xFE	; 254
+ 25a:	12 96       	adiw	r26, 0x02	; 2
+ 25c:	8c 93       	st	X, r24
+ 25e:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B1=1;
+ 260:	12 96       	adiw	r26, 0x02	; 2
+ 262:	8c 91       	ld	r24, X
+ 264:	12 97       	sbiw	r26, 0x02	; 2
+ 266:	82 60       	ori	r24, 0x02	; 2
+ 268:	12 96       	adiw	r26, 0x02	; 2
+ 26a:	8c 93       	st	X, r24
+ 26c:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B2=1;
+ 26e:	12 96       	adiw	r26, 0x02	; 2
+ 270:	8c 91       	ld	r24, X
+ 272:	12 97       	sbiw	r26, 0x02	; 2
+ 274:	84 60       	ori	r24, 0x04	; 4
+ 276:	12 96       	adiw	r26, 0x02	; 2
+ 278:	8c 93       	st	X, r24
+ 27a:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B4=0;
+ 27c:	12 96       	adiw	r26, 0x02	; 2
+ 27e:	8c 91       	ld	r24, X
+ 280:	12 97       	sbiw	r26, 0x02	; 2
+ 282:	8f 7e       	andi	r24, 0xEF	; 239
+ 284:	12 96       	adiw	r26, 0x02	; 2
+ 286:	8c 93       	st	X, r24
+			break;
+ 288:	08 95       	ret
+		}
+		case 7:
+		{
+			PeripheralB->PORT.Bit.B0=1;
+ 28a:	12 96       	adiw	r26, 0x02	; 2
+ 28c:	8c 91       	ld	r24, X
+ 28e:	12 97       	sbiw	r26, 0x02	; 2
+ 290:	81 60       	ori	r24, 0x01	; 1
+ 292:	12 96       	adiw	r26, 0x02	; 2
+ 294:	8c 93       	st	X, r24
+ 296:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B1=1;
+ 298:	12 96       	adiw	r26, 0x02	; 2
+ 29a:	8c 91       	ld	r24, X
+ 29c:	12 97       	sbiw	r26, 0x02	; 2
+ 29e:	82 60       	ori	r24, 0x02	; 2
+ 2a0:	12 96       	adiw	r26, 0x02	; 2
+ 2a2:	8c 93       	st	X, r24
+ 2a4:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B2=1;
+ 2a6:	12 96       	adiw	r26, 0x02	; 2
+ 2a8:	8c 91       	ld	r24, X
+ 2aa:	12 97       	sbiw	r26, 0x02	; 2
+ 2ac:	84 60       	ori	r24, 0x04	; 4
+ 2ae:	12 96       	adiw	r26, 0x02	; 2
+ 2b0:	8c 93       	st	X, r24
+ 2b2:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B4=0;
+ 2b4:	12 96       	adiw	r26, 0x02	; 2
+ 2b6:	8c 91       	ld	r24, X
+ 2b8:	12 97       	sbiw	r26, 0x02	; 2
+ 2ba:	8f 7e       	andi	r24, 0xEF	; 239
+ 2bc:	12 96       	adiw	r26, 0x02	; 2
+ 2be:	8c 93       	st	X, r24
+			break;
+ 2c0:	08 95       	ret
+		}
+		case 8:
+		{
+			PeripheralB->PORT.Bit.B0=0;
+ 2c2:	12 96       	adiw	r26, 0x02	; 2
+ 2c4:	8c 91       	ld	r24, X
+ 2c6:	12 97       	sbiw	r26, 0x02	; 2
+ 2c8:	8e 7f       	andi	r24, 0xFE	; 254
+ 2ca:	12 96       	adiw	r26, 0x02	; 2
+ 2cc:	8c 93       	st	X, r24
+ 2ce:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B1=0;
+ 2d0:	12 96       	adiw	r26, 0x02	; 2
+ 2d2:	8c 91       	ld	r24, X
+ 2d4:	12 97       	sbiw	r26, 0x02	; 2
+ 2d6:	8d 7f       	andi	r24, 0xFD	; 253
+ 2d8:	12 96       	adiw	r26, 0x02	; 2
+ 2da:	8c 93       	st	X, r24
+ 2dc:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B2=0;
+ 2de:	12 96       	adiw	r26, 0x02	; 2
+ 2e0:	8c 91       	ld	r24, X
+ 2e2:	12 97       	sbiw	r26, 0x02	; 2
+ 2e4:	8b 7f       	andi	r24, 0xFB	; 251
+ 2e6:	12 96       	adiw	r26, 0x02	; 2
+ 2e8:	8c 93       	st	X, r24
+ 2ea:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B4=1;
+ 2ec:	12 96       	adiw	r26, 0x02	; 2
+ 2ee:	8c 91       	ld	r24, X
+ 2f0:	12 97       	sbiw	r26, 0x02	; 2
+ 2f2:	80 61       	ori	r24, 0x10	; 16
+ 2f4:	12 96       	adiw	r26, 0x02	; 2
+ 2f6:	8c 93       	st	X, r24
+			break;
+ 2f8:	08 95       	ret
+		}
+		case 9:
+		{
+			PeripheralB->PORT.Bit.B0=1;
+ 2fa:	12 96       	adiw	r26, 0x02	; 2
+ 2fc:	8c 91       	ld	r24, X
+ 2fe:	12 97       	sbiw	r26, 0x02	; 2
+ 300:	81 60       	ori	r24, 0x01	; 1
+ 302:	12 96       	adiw	r26, 0x02	; 2
+ 304:	8c 93       	st	X, r24
+ 306:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B1=0;
+ 308:	12 96       	adiw	r26, 0x02	; 2
+ 30a:	8c 91       	ld	r24, X
+ 30c:	12 97       	sbiw	r26, 0x02	; 2
+ 30e:	8d 7f       	andi	r24, 0xFD	; 253
+ 310:	12 96       	adiw	r26, 0x02	; 2
+ 312:	8c 93       	st	X, r24
+ 314:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B2=0;
+ 316:	12 96       	adiw	r26, 0x02	; 2
+ 318:	8c 91       	ld	r24, X
+ 31a:	12 97       	sbiw	r26, 0x02	; 2
+ 31c:	8b 7f       	andi	r24, 0xFB	; 251
+ 31e:	12 96       	adiw	r26, 0x02	; 2
+ 320:	8c 93       	st	X, r24
+ 322:	12 97       	sbiw	r26, 0x02	; 2
+			PeripheralB->PORT.Bit.B4=1;
+ 324:	12 96       	adiw	r26, 0x02	; 2
+ 326:	8c 91       	ld	r24, X
+ 328:	12 97       	sbiw	r26, 0x02	; 2
+ 32a:	80 61       	ori	r24, 0x10	; 16
+ 32c:	12 96       	adiw	r26, 0x02	; 2
+ 32e:	8c 93       	st	X, r24
+ 330:	08 95       	ret
+
+Disassembly of section .text.SEVEN_SEG_two_numbers:
+
+00000332 <SEVEN_SEG_two_numbers>:
+		}
+	}//end of first switch
+}
+
+void SEVEN_SEG_two_numbers(u8 data)
+{
+ 332:	cf 93       	push	r28
+ 334:	df 93       	push	r29
+	u8 rem=data%10;
+ 336:	cd ec       	ldi	r28, 0xCD	; 205
+ 338:	8c 9f       	mul	r24, r28
+ 33a:	d1 2d       	mov	r29, r1
+ 33c:	11 24       	eor	r1, r1
+ 33e:	9d 2f       	mov	r25, r29
+ 340:	96 95       	lsr	r25
+ 342:	96 95       	lsr	r25
+ 344:	96 95       	lsr	r25
+ 346:	99 0f       	add	r25, r25
+ 348:	29 2f       	mov	r18, r25
+ 34a:	22 0f       	add	r18, r18
+ 34c:	22 0f       	add	r18, r18
+ 34e:	92 0f       	add	r25, r18
+	data=data/10;
+ 350:	d6 95       	lsr	r29
+ 352:	d6 95       	lsr	r29
+ 354:	d6 95       	lsr	r29
+	PeripheralB->PORT.Bit.B6=1;
+ 356:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 35a:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 35e:	22 81       	ldd	r18, Z+2	; 0x02
+ 360:	20 64       	ori	r18, 0x40	; 64
+ 362:	22 83       	std	Z+2, r18	; 0x02
+	PeripheralB->PORT.Bit.B5=0;
+ 364:	22 81       	ldd	r18, Z+2	; 0x02
+ 366:	2f 7d       	andi	r18, 0xDF	; 223
+ 368:	22 83       	std	Z+2, r18	; 0x02
+	SEVEN_SEG_one_number(rem);
+ 36a:	89 1b       	sub	r24, r25
+ 36c:	0e 94 6a 00 	call	0xd4	; 0xd4 <__data_load_end>
+ 370:	83 ec       	ldi	r24, 0xC3	; 195
+ 372:	99 e0       	ldi	r25, 0x09	; 9
+ 374:	01 97       	sbiw	r24, 0x01	; 1
+ 376:	f1 f7       	brne	.-4      	; 0x374 <SEVEN_SEG_two_numbers+0x42>
+ 378:	00 c0       	rjmp	.+0      	; 0x37a <SEVEN_SEG_two_numbers+0x48>
+ 37a:	00 00       	nop
+	_delay_ms(10);
+	rem=data%10;
+ 37c:	dc 9f       	mul	r29, r28
+ 37e:	c1 2d       	mov	r28, r1
+ 380:	11 24       	eor	r1, r1
+ 382:	c6 95       	lsr	r28
+ 384:	c6 95       	lsr	r28
+ 386:	c6 95       	lsr	r28
+ 388:	cc 0f       	add	r28, r28
+ 38a:	8c 2f       	mov	r24, r28
+ 38c:	88 0f       	add	r24, r24
+ 38e:	88 0f       	add	r24, r24
+ 390:	c8 0f       	add	r28, r24
+	PeripheralB->PORT.Bit.B6=0;
+ 392:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <PeripheralB>
+ 396:	f0 91 63 00 	lds	r31, 0x0063	; 0x800063 <PeripheralB+0x1>
+ 39a:	82 81       	ldd	r24, Z+2	; 0x02
+ 39c:	8f 7b       	andi	r24, 0xBF	; 191
+ 39e:	82 83       	std	Z+2, r24	; 0x02
+	PeripheralB->PORT.Bit.B5=1;
+ 3a0:	82 81       	ldd	r24, Z+2	; 0x02
+ 3a2:	80 62       	ori	r24, 0x20	; 32
+ 3a4:	82 83       	std	Z+2, r24	; 0x02
+	SEVEN_SEG_one_number(rem);
+ 3a6:	8d 2f       	mov	r24, r29
+ 3a8:	8c 1b       	sub	r24, r28
+ 3aa:	0e 94 6a 00 	call	0xd4	; 0xd4 <__data_load_end>
+ 3ae:	83 ec       	ldi	r24, 0xC3	; 195
+ 3b0:	99 e0       	ldi	r25, 0x09	; 9
+ 3b2:	01 97       	sbiw	r24, 0x01	; 1
+ 3b4:	f1 f7       	brne	.-4      	; 0x3b2 <SEVEN_SEG_two_numbers+0x80>
+ 3b6:	00 c0       	rjmp	.+0      	; 0x3b8 <SEVEN_SEG_two_numbers+0x86>
+ 3b8:	00 00       	nop
+	_delay_ms(10);
+	
+}
+ 3ba:	df 91       	pop	r29
+ 3bc:	cf 91       	pop	r28
+ 3be:	08 95       	ret
+
+Disassembly of section .text.libgcc:
+
+000004fc <__tablejump2__>:
+ 4fc:	ee 0f       	add	r30, r30
+ 4fe:	ff 1f       	adc	r31, r31
+ 500:	05 90       	lpm	r0, Z+
+ 502:	f4 91       	lpm	r31, Z
+ 504:	e0 2d       	mov	r30, r0
+ 506:	09 94       	ijmp
+
+Disassembly of section .text.__dummy_fini:
+
+00000510 <_fini>:
+ 510:	08 95       	ret
+
+Disassembly of section .text.__dummy_funcs_on_exit:
+
+00000512 <__funcs_on_exit>:
+ 512:	08 95       	ret
+
+Disassembly of section .text.__dummy_simulator_exit:
+
+00000514 <__simulator_exit>:
+ 514:	08 95       	ret
+
+Disassembly of section .text.exit:
+
+000004e6 <exit>:
+ 4e6:	ec 01       	movw	r28, r24
+ 4e8:	0e 94 89 02 	call	0x512	; 0x512 <__funcs_on_exit>
+ 4ec:	0e 94 88 02 	call	0x510	; 0x510 <_fini>
+ 4f0:	ce 01       	movw	r24, r28
+ 4f2:	0e 94 8a 02 	call	0x514	; 0x514 <__simulator_exit>
+ 4f6:	ce 01       	movw	r24, r28
+ 4f8:	0e 94 86 02 	call	0x50c	; 0x50c <_Exit>
+
+Disassembly of section .text._Exit:
+
+0000050c <_Exit>:
+ 50c:	0e 94 68 00 	call	0xd0	; 0xd0 <_exit>
