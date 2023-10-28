@@ -14,8 +14,10 @@ main.d main.o: .././main.c \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\common.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h \
- .././DIO_private.h .././Std_types.h .././LCD.h .././ADC.h \
- .././SEVEN_SEG.h \
+ .././MCAL/ADC/ADC_interface.h .././MCAL/ADC/../../Std_types.h \
+ .././MCAL/ADC/../../BIT_MATH.h .././MCAL/ADC/ADC_private.h \
+ .././MCAL/ADC/ADC_config.h .././MCAL/DIO/DIO_interface.h \
+ .././MCAL/DIO/DIO_private.h .././MCAL/DIO/../../Std_types.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h
@@ -50,15 +52,21 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h:
 
-.././DIO_private.h:
+.././MCAL/ADC/ADC_interface.h:
 
-.././Std_types.h:
+.././MCAL/ADC/../../Std_types.h:
 
-.././LCD.h:
+.././MCAL/ADC/../../BIT_MATH.h:
 
-.././ADC.h:
+.././MCAL/ADC/ADC_private.h:
 
-.././SEVEN_SEG.h:
+.././MCAL/ADC/ADC_config.h:
+
+.././MCAL/DIO/DIO_interface.h:
+
+.././MCAL/DIO/DIO_private.h:
+
+.././MCAL/DIO/../../Std_types.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h:
 

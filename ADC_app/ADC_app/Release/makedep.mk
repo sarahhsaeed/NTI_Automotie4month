@@ -2,13 +2,9 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-ADC.c
-
-DIO.c
-
-LCD.c
-
 main.c
 
-SEVEN_SEG.c
+MCAL\ADC\ADC_prog.c
+
+MCAL\DIO\DIO_prog.c
 
